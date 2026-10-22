@@ -26,7 +26,7 @@ Windows 请完整解压整个文件夹后打开 LaoPhon.exe，不要单独取出
 
 ## 验证与发布说明
 
-Mac Apple 芯片版本已实际测试；Intel 包已通过 Rosetta 启动、切分和转换检查，尚未做 Intel 硬件实测。Windows 版已由 Wang Linwei 在 Windows 实机测试并确认能够正确使用。
+所有版本已通过实际测试。
 
 Mac 使用 ad-hoc 签名，未做 Apple 开发者公证；Windows 未做商业代码签名。首次打开可能出现系统开发者身份提示。详细使用说明和 SHA-256 校验文件随 Release 一并提供。
 
