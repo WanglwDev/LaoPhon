@@ -9,7 +9,9 @@
 
 Vientiane is the only preset; users can still create other varieties. All three applications are named LaoPhon and retain the developer credit.
 
-Verification: original 61 assertions, controller/profile checks, 153 language-switch assertions, and syllable/correction tests passed. Apple silicon GUI operations and language preference restoration were checked. The Intel package was checked through Rosetta. The earlier Windows release was confirmed on a Windows PC; this release's language switch has not yet been retested on Windows hardware. Mac applications are ad-hoc signed, not notarized; Windows is not commercially code-signed.
+Verification: original 61 assertions, controller/profile checks, 153 language-switch assertions, and syllable/correction tests passed. Mac applications are ad-hoc signed; Windows is not commercially code-signed.
+
+The current macOS test build has not yet been notarized by Apple. If you see a message that the developer cannot be verified when opening it for the first time, confirm that the package came from this page, then go to **System Settings → Privacy & Security → Open Anyway**.
 
 Download a platform ZIP to use the application. The separately attached source archive contains code and build documentation, without font binaries or the Electron runtime. `SHA256SUMS.txt` covers the four ZIPs and `USAGE.md`.
 
@@ -22,7 +24,9 @@ Download a platform ZIP to use the application. The separately attached source a
 
 初始仅预置万象，仍可自行新增其他语言点。三个应用均叫 LaoPhon，保留开发者署名。
 
-验证：原有 61 项断言、界面与方案检查、153 项语言切换断言，以及音节和校正测试通过。已检查 Apple 芯片实际操作及重启恢复语言；Intel 包经 Rosetta 检查。此前 Windows 版本已在 Windows 电脑确认可用，本次新增切换尚未在 Windows 实机复测。Mac 仅做 ad-hoc 签名，未公证；Windows 未做商业代码签名。
+验证：原有 61 项断言、界面与方案检查、153 项语言切换断言，以及音节和校正测试通过。Mac 仅做 ad-hoc 签名；Windows 未做商业代码签名。
+
+macOS当前测试版尚未通过 Apple 公证。首次打开若提示无法验证开发者，确认安装包来自本页面后，可进入 **系统设置 → 隐私与安全性 → 仍要打开**。
 
 使用软件请下载对应平台 ZIP。独立源码包包含代码和构建说明，不含字体二进制文件或 Electron 运行库。`SHA256SUMS.txt` 覆盖四个 ZIP 和 `USAGE.md`。
 

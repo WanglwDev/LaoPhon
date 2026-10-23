@@ -40,9 +40,11 @@ Source tests run with Node.js 22 or later:
 npm test
 ```
 
-The regression suite includes the original 61 assertions, controller and profile checks, 153 language-switch assertions, and syllable/correction checks. Apple silicon GUI checks passed. The Intel build was checked through Rosetta, not on Intel hardware. The previous Windows release was tested on a Windows PC; this release's new language switch has not yet been retested on Windows hardware. Packaged application source was checked for consistency across all three platforms.
+The regression suite includes the original 61 assertions, controller and profile checks, 153 language-switch assertions, and syllable/correction checks. Packaged application source was checked for consistency across all three platforms.
 
-The macOS applications use ad-hoc signatures and are not Apple-notarized. The Windows application is not commercially code-signed. Your operating system may display an unknown-developer notice. Release assets include `SHA256SUMS.txt` for integrity checks.
+The macOS applications use ad-hoc signatures. The Windows application is not commercially code-signed. Release assets include `SHA256SUMS.txt` for integrity checks.
+
+The current macOS test build has not yet been notarized by Apple. If you see a message that the developer cannot be verified when opening it for the first time, confirm that the package came from this page, then go to **System Settings → Privacy & Security → Open Anyway**.
 
 ## 中文
 
@@ -82,8 +84,10 @@ Windows 请完整解压后打开 `LaoPhon.exe`，保留同目录全部资源和�
 npm test
 ```
 
-测试涵盖原有 61 项断言、界面控制器与方案检查、153 项语言切换断言，以及音节和校正检查。Apple 芯片版界面已实测；Intel 包通过 Rosetta 检查，尚未做 Intel 硬件实测。此前 Windows 版本已在 Windows 电脑测试通过，本次新增语言切换尚未在 Windows 实机复测。三个软件包内的应用源码已检查一致性。
+测试涵盖原有 61 项断言、界面控制器与方案检查、153 项语言切换断言，以及音节和校正检查。三个软件包内的应用源码已检查一致性。
 
-Mac 使用 ad-hoc 签名，未做 Apple 开发者公证；Windows 未做商业代码签名。首次打开可能出现系统开发者身份提示。发布附件提供 `SHA256SUMS.txt` 供校验。
+Mac 使用 ad-hoc 签名；Windows 未做商业代码签名。发布附件提供 `SHA256SUMS.txt` 供校验。
+
+macOS当前测试版尚未通过 Apple 公证。首次打开若提示无法验证开发者，确认安装包来自本页面后，可进入 **系统设置 → 隐私与安全性 → 仍要打开**。
 
 Developed by Wang Linwei | © 2026
