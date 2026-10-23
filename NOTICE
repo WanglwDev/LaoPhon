@@ -1,0 +1,7 @@
+LaoPhon
+Copyright 2026 Wang Linwei
+
+LaoPhon source code is licensed under the Apache License, Version 2.0.
+Syllable patterns include an adaptation of LaoNLP; see app/ui/THIRD_PARTY_NOTICES.md.
+Font binaries and the Electron runtime are not included in this source repository.
+Their respective notices and licenses remain separate from this source-code license.
