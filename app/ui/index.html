@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LaoPhon</title>
+  <meta name="description" content="老挝文国际音标转换工具。离线音节切分、人工核对，支持万象及自定义语言点的声调与音段映射。">
+  <meta name="theme-color" content="#174c40">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#laoInput">跳转到输入</a>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">ລ</span><span>LaoPhon<small>老挝文 · 国际音标</small></span></div>
+      <div class="header-actions">
+      <div class="profile-toolbar" aria-label="当前声调方案">
+        <span>当前语言点：</span>
+        <strong id="activeProfileName">未选择</strong>
+        <button id="manageProfilesButton" class="button button-secondary button-compact" type="button">
+          声调方案
+        </button>
+      </div>
+      <div class="language-switcher" role="group" aria-label="界面语言">
+        <button id="languageZh" type="button" lang="zh-CN" aria-pressed="true">中文</button>
+        <button id="languageEn" type="button" lang="en" aria-pressed="false">English</button>
+      </div>
+      <span id="languageNotice" class="language-notice" role="status" hidden>界面语言仅在当前会话有效。</span>
+      </div>
+    </header>
+
+    <h1 class="sr-only">LaoPhon 老挝文转国际音标</h1>
+    <p id="storageNotice" class="storage-notice" role="status" hidden>本地存储不可用：方案修改仅在当前会话有效，关闭或刷新后可能丢失。</p>
+    <section class="workspace" aria-label="音标转换工作区">
+      <aside class="sidebar">
+        <h2><span class="step-number">01</span>输入老挝文</h2><p class="intro">拼写规则与本机校正词条共同辅助切分。</p>
+
+        <label class="field-label" for="laoInput">老挝文文本</label>
+        <textarea id="laoInput" lang="lo" rows="6" maxlength="20000" spellcheck="false" placeholder="在这里输入老挝文…" aria-describedby="segmentHint"></textarea>
+
+        <button id="segmentButton" class="button button-info" type="button">
+          <span aria-hidden="true">✂</span>
+          <span>自动拆分音节</span>
+        </button>
+
+        <div class="input-meta"><span id="inputCount">0 / 20,000</span><span>文本仅在本地处理</span></div>
+        <div class="examples" aria-label="试用示例"><span>试一试</span><button type="button" class="example-button" data-example="ການຄ້າ">ການຄ້າ</button><button type="button" class="example-button" data-example="ນັກຮຽນ">ນັກຮຽນ</button><button type="button" class="example-button" data-example="ພັດທະນາ">ພັດທະນາ</button></div>
+        <div class="divider"></div>
+        <p id="segmentHint" class="hint">切分在本地完成，无需联网。特殊拼写和歧义边界仍需人工核对。</p>
+        <div class="divider"></div>
+
+        <p class="rule-title">使用说明</p>
+        <ul class="rules">
+          <li>红色片段需修正后才能转写；黄色提示需核对</li>
+          <li>可保存自己的拆分校正，下次自动优先使用</li>
+        </ul>
+      </aside>
+
+      <section class="main-panel">
+        <section class="panel">
+          <h2><span class="step-number">02</span>确认音节</h2>
+          <label class="sr-only" for="manualSeg">手动调整音节，以空格分隔</label>
+          <textarea id="manualSeg" lang="lo" rows="4" maxlength="20000" spellcheck="false" placeholder="切分结果会显示在这里，也可以直接输入音节" aria-describedby="manualHint"></textarea>
+          <p id="manualHint" class="hint">用空格分隔音节。修改后，系统会按你输入的边界重新检查。</p>
+          <div id="analysisSummary" class="analysis-summary" role="status">输入文本后，点击自动拆分音节。</div>
+          <div id="syllableTokens" class="syllable-tokens" aria-label="音节检查"></div>
+          <div id="analysisIssues" class="analysis-issues" aria-live="polite"></div>
+          <div id="analysisAlternatives" class="analysis-alternatives"></div>
+          <div id="confirmSlot"></div>
+        </section>
+
+        <section class="panel">
+          <h2><span class="step-number">03</span>IPA 转换结果</h2>
+          <label class="spacing-option"><input id="spacedOutput" type="checkbox"> 音节间加空格</label>
+          <div class="result-box" aria-live="polite" aria-atomic="true">
+            <code id="ipaOutput"></code><span id="resultPlaceholder" class="result-placeholder">确认音节后，生成音标</span>
+          </div>
+          <button id="copyButton" class="button button-default" type="button" disabled>
+            <span aria-hidden="true">⧉</span>
+            <span>复制结果</span>
+          </button>
+        </section>
+      </section>
+    </section>
+    <section class="panel correction-panel" aria-label="本机拆分校正">
+      <details id="correctionDetails">
+        <summary>本机拆分校正 <span id="correctionCount">0 条</span><span class="details-hint">保存你确认过的边界</span></summary>
+        <p class="hint">词条按连续字串匹配，最长词条优先。Mac 与网站各自保存；备份文本可在两者之间迁移。</p>
+        <div class="correction-form"><label for="correctionSource">原文字串<input id="correctionSource" class="text-input" lang="lo" maxlength="200" placeholder="例如：ການຄ້າ" autocomplete="off"></label><label for="correctionSplit">确认后的音节<input id="correctionSplit" class="text-input" lang="lo" maxlength="400" placeholder="例如：ການ ຄ້າ" autocomplete="off"></label><button id="saveCorrectionButton" class="button button-secondary" type="button">保存 / 更新词条</button></div>
+        <p id="correctionMessage" class="hint" role="status"></p>
+        <div id="correctionList" class="correction-list"></div>
+        <details class="backup-details"><summary>备份与导入校正词典</summary><p class="hint">导入会合并词条；原文字串相同的条目，以导入内容为准。复制备份文本可留作离线备份。</p><label class="sr-only" for="correctionBackup">校正词典备份文本</label><textarea id="correctionBackup" rows="5" spellcheck="false" placeholder="生成备份文本，或在此粘贴备份"></textarea><div class="profile-actions"><button id="exportCorrectionsButton" class="button button-secondary button-compact" type="button">生成备份文本</button><button id="copyCorrectionsButton" class="button button-muted button-compact" type="button">复制备份文本</button><button id="importCorrectionsButton" class="button button-secondary button-compact" type="button">合并导入</button></div></details>
+      </details>
+    </section>
+    <footer class="site-footer"><span>LaoPhon · 老挝文转 IPA</span><span id="offlineStatus" role="status">本地处理</span><p>规则匹配不代表读音已核验。无法识别或现有 IPA 规则不支持的片段会提示修正。语言点方案保留原有转换规则。</p><p class="developer-credit">Developed by Wang Linwei | © 2026</p></footer>
+  </main>
+
+  <div id="profileModal" class="modal-backdrop" aria-hidden="true">
+    <section class="profile-dialog" role="dialog" aria-modal="true" aria-labelledby="profileDialogTitle">
+      <header class="dialog-header">
+        <div>
+          <h2 id="profileDialogTitle">声调方案</h2>
+          <p>管理语言点的声调与音段映射。15 个调类的调值将自动转换为上标。</p>
+        </div>
+        <button id="closeProfileButton" class="icon-button" type="button" aria-label="关闭声调方案">×</button>
+      </header>
+
+      <div class="profile-picker">
+        <label for="profileSelect">已保存的语言点</label>
+        <select id="profileSelect"></select>
+        <div class="profile-actions">
+          <button id="newProfileButton" class="button button-secondary button-compact" type="button">新增</button>
+          <button id="deleteProfileButton" class="button button-danger button-compact" type="button" disabled>删除</button>
+          <button id="restoreDefaultButton" class="button button-muted button-compact" type="button">恢复默认万象</button>
+        </div>
+      </div>
+
+      <div id="deleteConfirmation" class="delete-confirmation" role="group" aria-label="确认删除方案" hidden>
+        <p id="deleteConfirmationText"></p>
+        <div class="profile-actions"><button id="confirmDeleteButton" class="button button-danger button-compact" type="button">确认删除</button><button id="cancelDeleteButton" class="button button-muted button-compact" type="button">取消</button></div>
+      </div>
+      <div class="profile-form">
+        <label class="field-label" for="profileName">语言点名称</label>
+        <input id="profileName" class="text-input" type="text" maxlength="60" autocomplete="off" placeholder="例如：万象">
+
+        <div class="editor-tabs" role="tablist" aria-label="语言点映射类型">
+          <button class="editor-tab active" type="button" role="tab" id="tab-tones" aria-controls="panel-tones" tabindex="0" data-editor-tab="tones" aria-selected="true">声调</button>
+          <button class="editor-tab" type="button" role="tab" id="tab-consonants" aria-controls="panel-consonants" tabindex="-1" data-editor-tab="consonants" aria-selected="false">辅音</button>
+          <button class="editor-tab" type="button" role="tab" id="tab-vowels" aria-controls="panel-vowels" tabindex="-1" data-editor-tab="vowels" aria-selected="false">元音</button>
+          <button class="editor-tab" type="button" role="tab" id="tab-finals" aria-controls="panel-finals" tabindex="-1" data-editor-tab="finals" aria-selected="false">韵尾</button>
+        </div>
+
+        <section class="editor-panel active" id="panel-tones" aria-labelledby="tab-tones" data-editor-panel="tones" role="tabpanel">
+          <details class="tone-reference">
+            <summary>调类代号说明：A、B、C、DS、DL 与 H、M、L</summary>
+            <p>前半部分表示调类，末尾字母表示辅音字母等级：H（High）高辅音字母、M（Mid）中辅音字母、L（Low）低辅音字母。例如：<span lang="lo">ຂ</span> 属 H，<span lang="lo">ກ</span> 属 M，<span lang="lo">ຄ</span> 属 L。</p>
+            <table class="tone-reference-table">
+              <caption>15 个调类代号</caption>
+              <thead><tr><th scope="col">调类</th><th scope="col">含义</th><th scope="col">H 高辅音</th><th scope="col">M 中辅音</th><th scope="col">L 低辅音</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">A</th><td>无声调符号开音节</td><td class="tone-code">AH</td><td class="tone-code">AM</td><td class="tone-code">AL</td></tr>
+                <tr><th scope="row">B</th><td>带第一声调符号开音节</td><td class="tone-code">BH</td><td class="tone-code">BM</td><td class="tone-code">BL</td></tr>
+                <tr><th scope="row">C</th><td>带第二声调符号开音节</td><td class="tone-code">CH</td><td class="tone-code">CM</td><td class="tone-code">CL</td></tr>
+                <tr><th scope="row">DS</th><td>短塞音节</td><td class="tone-code">DSH</td><td class="tone-code">DSM</td><td class="tone-code">DSL</td></tr>
+                <tr><th scope="row">DL</th><td>长塞音节</td><td class="tone-code">DLH</td><td class="tone-code">DLM</td><td class="tone-code">DLL</td></tr>
+              </tbody>
+            </table>
+            <p class="tone-reference-note">例如 AM＝A 类＋中辅音字母，DLH＝长塞音节＋高辅音字母。H/M/L 表示字母等级，实际调值请在下方填写。</p>
+          </details>
+          <div class="tone-section-heading">
+            <span class="field-label">各调类实际调值</span>
+            <span>仅限 1–5，最多三位</span>
+          </div>
+          <div id="toneFields" class="tone-grid"></div>
+        </section>
+
+        <section class="editor-panel" id="panel-consonants" aria-labelledby="tab-consonants" data-editor-panel="consonants" role="tabpanel" hidden>
+          <p class="mapping-help">辅音等级保持不变；这里修改各辅音字母在该语言点的 IPA。</p>
+          <div id="consonantFields" class="mapping-grid"></div>
+        </section>
+
+        <section class="editor-panel" id="panel-vowels" aria-labelledby="tab-vowels" data-editor-panel="vowels" role="tabpanel" hidden>
+          <p class="mapping-help">元音长短及结构保持不变；这里修改元音形式对应的 IPA。</p>
+          <div id="vowelFields" class="mapping-grid"></div>
+        </section>
+
+        <section class="editor-panel" id="panel-finals" aria-labelledby="tab-finals" data-editor-panel="finals" role="tabpanel" hidden>
+          <p class="mapping-help">韵尾类型保持不变；这里修改韵尾字母对应的 IPA。</p>
+          <div id="finalFields" class="mapping-grid"></div>
+        </section>
+      </div>
+
+      <p id="profileError" class="form-error" role="alert" aria-live="polite"></p>
+
+      <footer class="dialog-footer">
+        <button id="saveProfileButton" class="button button-secondary button-compact" type="button">保存</button>
+        <button id="useProfileButton" class="button button-success button-compact" type="button">保存并使用</button>
+      </footer>
+    </section>
+  </div>
+
+  <div id="notification" role="status" aria-live="polite"></div>
+  <script src="tone-engine.js"></script>
+  <script src="profile-store.js"></script>
+  <script src="syllable-engine.js"></script>
+  <script src="correction-store.js"></script>
+  <script src="app.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>

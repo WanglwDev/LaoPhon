@@ -1,0 +1,16 @@
+IPAPANNEW
+Font file: IpaPanNew.ttf
+Original font metadata: Copyright (c) SIL International, 1994-2006. All rights reserved.
+Font family / full name / PostScript name: IPAPANNEW
+Embedded from the locally installed font at the user's request, without modification.
+OS/2 fsType: 0 (no embedding restriction set in the font metadata).
+SHA-256: 7abb6170cce71697e9c8c990ea20048fe495b0275833f18d6421aa21df6cedea
+
+Saysettha OT
+Font file: SaysetthaOT.ttf
+Original font metadata: Copyright (c) John Durdin, Lao Script for Windows, 2002. All rights reserved.
+Font family / full name: Saysettha OT; PostScript name: SaysetthaOT.
+Embedded from the locally installed font at the user's request, without modification.
+OS/2 fsType: 0 (no embedding restriction set in the font metadata).
+SHA-256: 6f4f1240140c927437c69d37b45f010adc09261eadcd239ddd97ed8dc7658510
+Lao Unicode range only; other scripts keep their existing font stacks.
