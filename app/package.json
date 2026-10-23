@@ -1,0 +1,8 @@
+{
+  "name": "laophon-share",
+  "productName": "LaoPhon",
+  "version": "2.0.1",
+  "private": true,
+  "description": "离线老挝文转 IPA，仅预置万象语言点",
+  "main": "main.cjs"
+}
