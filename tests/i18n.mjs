@@ -86,7 +86,7 @@ equal(app.context.document.documentElement.lang, 'en');
 equal(app.nodes.heading.textContent, '  Enter Lao text  ');
 equal(app.nodes.laoInput.getAttribute('placeholder'), 'Enter Lao text here…');
 equal(app.nodes.profileName.getAttribute('aria-label'), 'Variety name');
-equal(app.nodes.mappingMeta.textContent, 'Long vowel · Open-syllable form');
+equal(app.nodes.mappingMeta.textContent, 'Long vowel letter · Open-syllable form');
 equal(app.nodes.activeProfileName.textContent, '声调');
 equal(app.custom.textContent, '保存');
 equal(app.placeholder.textContent, 'Select a variety');
