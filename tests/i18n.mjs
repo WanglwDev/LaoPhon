@@ -58,6 +58,8 @@ function boot({saved, storageFails = false} = {}) {
   const profile = add('input', 'profileName'); profile.value = '我的语言点'; profile.setAttribute('aria-label', '语言点名称');
   const output = add('code', 'ipaOutput', 'kaː⁵³');
   const label = add('div', 'mappingMeta', '长元音 · 开音节式');
+  add('button', 'finalTab', '韵尾');
+  add('p', 'finalHelp', '韵尾类型保持不变；这里修改韵尾字母对应的 IPA。');
   const storage = saved ? {'laophon.share.uiLanguage.v1': saved} : {};
   const bridge = [];
   let observer;
@@ -80,6 +82,8 @@ function boot({saved, storageFails = false} = {}) {
 const app = boot();
 equal(app.api.language, 'zh');
 equal(app.nodes.heading.textContent, '  输入老挝文  ');
+equal(app.nodes.finalTab.textContent, '尾音字母');
+equal(app.nodes.finalHelp.textContent, '尾音字母类型保持不变；这里修改尾音字母对应的 IPA。');
 app.nodes.languageEn.listeners.click();
 equal(app.api.language, 'en');
 equal(app.context.document.documentElement.lang, 'en');
@@ -87,6 +91,8 @@ equal(app.nodes.heading.textContent, '  Enter Lao text  ');
 equal(app.nodes.laoInput.getAttribute('placeholder'), 'Enter Lao text here…');
 equal(app.nodes.profileName.getAttribute('aria-label'), 'Variety name');
 equal(app.nodes.mappingMeta.textContent, 'Long vowel letter · Open-syllable form');
+equal(app.nodes.finalTab.textContent, 'Final letters');
+equal(app.nodes.finalHelp.textContent, 'Final letter types remain unchanged. Edit the IPA mapping of each final letter.');
 equal(app.nodes.activeProfileName.textContent, '声调');
 equal(app.custom.textContent, '保存');
 equal(app.placeholder.textContent, 'Select a variety');
@@ -111,6 +117,8 @@ app.nodes.ipaOutput.textContent = '保存'; app.notify(app.nodes.ipaOutput.child
 equal(app.nodes.ipaOutput.textContent, '保存');
 
 app.nodes.languageZh.listeners.click();
+equal(app.nodes.finalTab.textContent, '尾音字母');
+equal(app.nodes.finalHelp.textContent, '尾音字母类型保持不变；这里修改尾音字母对应的 IPA。');
 equal(app.nodes.notification.textContent, '已保存“声调”。');
 equal(app.nodes.heading.textContent, '2 个音节 · 1 个待修正片段 · 1 处拆分歧义');
 equal(app.nodes.activeProfileName.textContent, '未选择');

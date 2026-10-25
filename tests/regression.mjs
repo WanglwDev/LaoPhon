@@ -26,6 +26,15 @@ function boot(seed = {}) {
 }
 
 let run = boot();
+run('manageProfilesButton.dispatch("click")');
+for (const group of ['consonants', 'vowels', 'finals']) {
+  const entries = JSON.parse(run(`JSON.stringify(toneEngine.segmentEntries.${group})`));
+  const cards = JSON.parse(run(`JSON.stringify(createdElements.filter(element => element.className === 'mapping-field' && element.children[1].dataset.mappingGroup === '${group}').map(element => ({headingTags: element.children[0].children.map(child => child.tagName), letter: element.children[0].children[0].textContent, key: element.children[1].dataset.mappingKey})))`));
+  assert.equal(cards.length, entries.length);
+  assert.deepEqual(cards.map(card => card.headingTags), entries.map(() => ['STRONG']));
+  assert.deepEqual(cards.map(card => [card.letter, card.key]), entries.map(entry => [entry.grapheme, entry.grapheme]));
+}
+console.log('PASS: all three letter mapping editors retain every letter and IPA field without per-letter annotations');
 const defaults = JSON.parse(run('JSON.stringify(profilesApi.createDefaultProfile())'));
 const privateProfiles = JSON.stringify({version:2,profiles:[defaults,{...defaults,id:'private',name:'Private test variety'}]});
 const seed = {
