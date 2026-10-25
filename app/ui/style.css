@@ -697,7 +697,7 @@ summary:focus-visible { outline:3px solid #77aa92; outline-offset:4px; }
 .tone-reference-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
 .tone-reference-table caption { text-align: left; font-weight: 650; padding-bottom: 8px; }
 .tone-reference-table th, .tone-reference-table td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--border); }
-.tone-reference-table thead th { font-weight: 650; white-space: nowrap; }
+.tone-reference-table thead th { font-weight: 650; white-space: normal; }
 .tone-reference-table tbody th { white-space: nowrap; }
 .tone-reference-table td.tone-code { white-space: nowrap; }
 .tone-reference [lang="lo"] { font-size: 19px; line-height: 1.8; }
