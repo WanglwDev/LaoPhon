@@ -149,16 +149,16 @@
   const terminology = {
     "辅音": ["起始辅音字母", "Initial consonant letters"],
     "元音": ["元音字母", "Vowel letters"],
-    "韵尾": ["尾辅音字母", "Final consonant letters"],
+    "韵尾": ["尾音字母", "Final letters"],
     "高辅音": ["高起始辅音字母", "High-class initial consonant letter"],
     "中辅音": ["中起始辅音字母", "Mid-class initial consonant letter"],
     "低辅音": ["低起始辅音字母", "Low-class initial consonant letter"],
     "短元音": ["短元音字母", "Short vowel letter"],
     "长元音": ["长元音字母", "Long vowel letter"],
     "特殊元音": ["特殊元音字母", "Special vowel letter"],
-    "塞音韵尾": ["塞音类尾辅音字母", "Stop-type final consonant letter"],
-    "鼻音韵尾": ["鼻音类尾辅音字母", "Nasal-type final consonant letter"],
-    "元音韵尾": ["元音类尾辅音字母", "Vowel-type final consonant letter"],
+    "塞音韵尾": ["塞音类尾音字母", "Stop-type final letter"],
+    "鼻音韵尾": ["鼻音类尾音字母", "Nasal-type final letter"],
+    "元音韵尾": ["元音类尾音字母", "Vowel-type final letter"],
     "H 高辅音": ["H 高起始辅音字母", "H: high-class initial consonant letters"],
     "M 中辅音": ["M 中起始辅音字母", "M: mid-class initial consonant letters"],
     "L 低辅音": ["L 低起始辅音字母", "L: low-class initial consonant letters"],
@@ -179,12 +179,12 @@
       "The length and structure represented by vowel letters remain unchanged. Edit the IPA mapping of each vowel letter form."
     ],
     "韵尾类型保持不变；这里修改韵尾字母对应的 IPA。": [
-      "尾辅音字母类型保持不变；这里修改尾辅音字母对应的 IPA。",
-      "Final consonant letter types remain unchanged. Edit the IPA mapping of each final consonant letter."
+      "尾音字母类型保持不变；这里修改尾音字母对应的 IPA。",
+      "Final letter types remain unchanged. Edit the IPA mapping of each final letter."
     ],
     "辅音、元音和韵尾的 IPA 映射均不能为空，且每项不能超过 24 个字符。": [
-      "起始辅音字母、元音字母和尾辅音字母的 IPA 映射均不能为空，且每项不能超过 24 个字符。",
-      "All initial consonant letter, vowel letter and final consonant letter IPA mappings are required, with at most 24 characters each."
+      "起始辅音字母、元音字母和尾音字母的 IPA 映射均不能为空，且每项不能超过 24 个字符。",
+      "All initial consonant letter, vowel letter and final letter IPA mappings are required, with at most 24 characters each."
     ],
     "现有 IPA 规则尚不支持此音节的辅音或韵母结构": [
       "现有 IPA 规则尚不支持此音节的起始辅音字母或韵母结构",

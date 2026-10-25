@@ -186,18 +186,6 @@ function updateToneLabel(toneClass, value) {
     : abbreviation;
 }
 
-function mappingMeta(group, entry) {
-  if (group === "consonants") {
-    return { High: "高辅音", Mid: "中辅音", Low: "低辅音" }[entry.class] || entry.class;
-  }
-  if (group === "vowels") {
-    const length = { Short: "短元音", Long: "长元音", Special: "特殊元音" }[entry.len] || entry.len;
-    const type = { Open: "开音节式", Closed: "闭音节式" }[entry.type] || entry.type;
-    return `${length} · ${type}`;
-  }
-  return { Stop: "塞音韵尾", Nasal: "鼻音韵尾", Vowel: "元音韵尾" }[entry.type] || entry.type;
-}
-
 function buildMappingFields(group, container) {
   const fragment = document.createDocumentFragment();
   toneEngine.segmentEntries[group].forEach((entry, index) => {
@@ -209,9 +197,7 @@ function buildMappingFields(group, container) {
     heading.className = "mapping-field-heading";
     const grapheme = document.createElement("strong");
     grapheme.textContent = entry.grapheme;
-    const meta = document.createElement("small");
-    meta.textContent = mappingMeta(group, entry);
-    heading.append(grapheme, meta);
+    heading.append(grapheme);
 
     const input = document.createElement("input");
     input.id = `mapping-${group}-${index}`;
