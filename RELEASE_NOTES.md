@@ -1,8 +1,10 @@
-# LaoPhon v2.0.2
+# LaoPhon v2.0.3
 
 ## English
 
-- Align the interface and usage guide with the terms **Initial consonant letters**, **Vowel letters**, and **Final consonant letters**.
+- Remove per-letter classification notes from all three letter mapping editors; preserve letters, IPA fields, mapping data and conversion rules.
+
+- Align the interface and usage guide with the terms **Initial consonant letters**, **Vowel letters**, and **Final letters**.
 - Synchronize the attached source archive and GitHub-generated source downloads with this revision.
 
 - Add **中文 / English** to the upper-right header on Windows, Apple silicon Mac, and Intel Mac. The selection is remembered locally.
@@ -12,7 +14,7 @@
 
 Vientiane is the only preset; users can still create other varieties. All three applications are named LaoPhon and retain the developer credit.
 
-Verification: original 61 assertions, controller/profile checks, 153 language-switch assertions, and syllable/correction tests passed. Mac applications are ad-hoc signed; Windows is not commercially code-signed.
+Verification: original 61 assertions, controller/profile checks, 159 language-switch assertions, and syllable/correction tests passed. Mac applications are ad-hoc signed; Windows is not commercially code-signed.
 
 The current macOS test build has not yet been notarized by Apple. If you see a message that the developer cannot be verified when opening it for the first time, confirm that the package came from this page, then go to **System Settings → Privacy & Security → Open Anyway**.
 
@@ -20,7 +22,9 @@ Download a platform ZIP to use the application. The separately attached source a
 
 ## 中文
 
-- 界面和使用说明统一采用“起始辅音字母”“元音字母”“尾辅音字母”。
+- 删除起始辅音字母、元音字母和尾音字母编辑区的逐字母分类注释，保留字母、IPA 输入框、映射数据与转换规则。
+
+- 界面和使用说明统一采用“起始辅音字母”“元音字母”“尾音字母”。
 - 独立源码包及 GitHub 自动生成的源码下载同步到本次修订。
 
 - Windows、Apple 芯片 Mac、Intel Mac 页首右侧新增 **中文 / English**，并在本机记住选择。
@@ -30,7 +34,7 @@ Download a platform ZIP to use the application. The separately attached source a
 
 初始仅预置万象，仍可自行新增其他语言点。三个应用均叫 LaoPhon，保留开发者署名。
 
-验证：原有 61 项断言、界面与方案检查、153 项语言切换断言，以及音节和校正测试通过。Mac 仅做 ad-hoc 签名；Windows 未做商业代码签名。
+验证：原有 61 项断言、界面与方案检查、159 项语言切换断言，以及音节和校正测试通过。Mac 仅做 ad-hoc 签名；Windows 未做商业代码签名。
 
 macOS当前测试版尚未通过 Apple 公证。首次打开若提示无法验证开发者，确认安装包来自本页面后，可进入 **系统设置 → 隐私与安全性 → 仍要打开**。
 

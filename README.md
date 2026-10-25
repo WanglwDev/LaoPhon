@@ -15,7 +15,7 @@ Get the ready-to-use applications from the [latest release](https://github.com/W
 | [LaoPhon-Windows-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-Windows-x64.zip) | Windows 10 / 11, Intel or AMD 64-bit |
 | [LaoPhon-macOS-arm64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-arm64.zip) | macOS 13+, Apple silicon |
 | [LaoPhon-macOS-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-x64.zip) | macOS 13+, Intel |
-| [LaoPhon-source-v2.0.2.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.2/LaoPhon-source-v2.0.2.zip) | Source code, tests, and build instructions |
+| [LaoPhon-source-v2.0.3.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.3/LaoPhon-source-v2.0.3.zip) | Source code, tests, and build instructions |
 
 Extract the entire Windows archive before opening `LaoPhon.exe`; keep its resources and runtime files together. On macOS, extract the archive and open `LaoPhon.app`. No Node.js, Python, account, or internet connection is needed to use the packaged applications. See [USAGE.md](USAGE.md) for details.
 
@@ -44,7 +44,7 @@ Source tests run with Node.js 22 or later:
 npm test
 ```
 
-The regression suite includes the original 61 assertions, controller and profile checks, 153 language-switch assertions, and syllable/correction checks. Packaged application source was checked for consistency across all three platforms.
+The regression suite includes the original 61 assertions, controller and profile checks, 159 language-switch assertions, and syllable/correction checks. Packaged application source was checked for consistency across all three platforms.
 
 The macOS applications use ad-hoc signatures. The Windows application is not commercially code-signed. Release assets include `SHA256SUMS.txt` for integrity checks.
 
@@ -63,7 +63,7 @@ LaoPhon 是可离线使用的老挝文转国际音标工具，提供 Windows 和
 | [LaoPhon-Windows-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-Windows-x64.zip) | Windows 10 / 11，Intel 或 AMD 64 位 |
 | [LaoPhon-macOS-arm64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-arm64.zip) | macOS 13 或更新，Apple 芯片 |
 | [LaoPhon-macOS-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-x64.zip) | macOS 13 或更新，Intel 芯片 |
-| [LaoPhon-source-v2.0.2.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.2/LaoPhon-source-v2.0.2.zip) | 源码、测试与构建说明 |
+| [LaoPhon-source-v2.0.3.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.3/LaoPhon-source-v2.0.3.zip) | 源码、测试与构建说明 |
 
 Windows 请完整解压后打开 `LaoPhon.exe`，保留同目录全部资源和运行库；Mac 解压后打开 `LaoPhon.app`。使用打包后的软件无需安装 Node.js、Python，也无需账号或联网。详细步骤见 [USAGE.md](USAGE.md)。
 
@@ -92,7 +92,7 @@ Windows 请完整解压后打开 `LaoPhon.exe`，保留同目录全部资源和�
 npm test
 ```
 
-测试涵盖原有 61 项断言、界面控制器与方案检查、153 项语言切换断言，以及音节和校正检查。三个软件包内的应用源码已检查一致性。
+测试涵盖原有 61 项断言、界面控制器与方案检查、159 项语言切换断言，以及音节和校正检查。三个软件包内的应用源码已检查一致性。
 
 Mac 使用 ad-hoc 签名；Windows 未做商业代码签名。发布附件提供 `SHA256SUMS.txt` 供校验。
 
