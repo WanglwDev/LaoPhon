@@ -7,7 +7,7 @@
 3. Select **中文** or **English** in the upper-right header. Your preference is saved locally.
 4. Enter Lao text and select **Segment syllables**. Check the proposed boundaries and edit them with spaces. Correct red segments before transcription and review yellow notices.
 5. Select **Confirm and generate IPA**, optionally add spaces between syllables, and select **Copy output**.
-6. Open **Tone profiles** to edit Vientiane (万象) or add a new variety. Tone categories, consonants, vowels, and finals remain editable. Saving and using a profile are separate operations.
+6. Open **Tone profiles** to edit Vientiane (万象) or add a new variety. Tone categories, initial consonant letters, vowel letters, and final consonant letters remain editable. Saving and using a profile are separate operations.
 7. Expand **Saved segmentation corrections** to save confirmed boundaries or export/import a correction backup.
 
 Text, profiles, corrections, and interface preferences remain on the local computer. No account or network connection is required for the packaged application. Profiles are not automatically synchronized between computers. This distribution starts with Vientiane only and includes no personal profiles or correction records.
@@ -23,7 +23,7 @@ Segmentation and IPA follow the current spelling and conversion rules. Ambiguiti
 3. 在页首右侧选择 **中文** 或 **English**，软件会在本机保存选择。
 4. 输入老挝文，点击 **自动拆分音节**，人工核对并用空格调整边界；先修正红色片段，核对黄色提示。
 5. 点击 **确认并生成 IPA**，可选择音节间加空格，再点击 **复制结果**。
-6. 打开 **声调方案** 编辑万象或新增语言点。调类、辅音、元音和韵尾均可编辑；“保存”和“保存并启用”是不同操作。
+6. 打开 **声调方案** 编辑万象或新增语言点。调类、起始辅音字母、元音字母和尾辅音字母均可编辑；“保存”和“保存并使用”是不同操作。
 7. 展开 **本机拆分校正** 保存确认过的边界，或导出、导入校正备份。
 
 文本、方案、校正与界面偏好均保存在本机。使用打包后的软件无需账号或联网，电脑间不会自动同步方案。初始仅预置万象，不包含个人语言点或校正记录。

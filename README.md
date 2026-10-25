@@ -15,7 +15,7 @@ Get the ready-to-use applications from the [latest release](https://github.com/W
 | [LaoPhon-Windows-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-Windows-x64.zip) | Windows 10 / 11, Intel or AMD 64-bit |
 | [LaoPhon-macOS-arm64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-arm64.zip) | macOS 13+, Apple silicon |
 | [LaoPhon-macOS-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-x64.zip) | macOS 13+, Intel |
-| [LaoPhon-source-v2.0.1.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.1/LaoPhon-source-v2.0.1.zip) | Source code, tests, and build instructions |
+| [LaoPhon-source-v2.0.2.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.2/LaoPhon-source-v2.0.2.zip) | Source code, tests, and build instructions |
 
 Extract the entire Windows archive before opening `LaoPhon.exe`; keep its resources and runtime files together. On macOS, extract the archive and open `LaoPhon.app`. No Node.js, Python, account, or internet connection is needed to use the packaged applications. See [USAGE.md](USAGE.md) for details.
 
@@ -63,7 +63,7 @@ LaoPhon 是可离线使用的老挝文转国际音标工具，提供 Windows 和
 | [LaoPhon-Windows-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-Windows-x64.zip) | Windows 10 / 11，Intel 或 AMD 64 位 |
 | [LaoPhon-macOS-arm64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-arm64.zip) | macOS 13 或更新，Apple 芯片 |
 | [LaoPhon-macOS-x64.zip](https://github.com/WanglwDev/LaoPhon/releases/latest/download/LaoPhon-macOS-x64.zip) | macOS 13 或更新，Intel 芯片 |
-| [LaoPhon-source-v2.0.1.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.1/LaoPhon-source-v2.0.1.zip) | 源码、测试与构建说明 |
+| [LaoPhon-source-v2.0.2.zip](https://github.com/WanglwDev/LaoPhon/releases/download/v2.0.2/LaoPhon-source-v2.0.2.zip) | 源码、测试与构建说明 |
 
 Windows 请完整解压后打开 `LaoPhon.exe`，保留同目录全部资源和运行库；Mac 解压后打开 `LaoPhon.app`。使用打包后的软件无需安装 Node.js、Python，也无需账号或联网。详细步骤见 [USAGE.md](USAGE.md)。
 

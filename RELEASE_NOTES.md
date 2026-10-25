@@ -1,6 +1,9 @@
-# LaoPhon v2.0.1
+# LaoPhon v2.0.2
 
 ## English
+
+- Align the interface and usage guide with the terms **Initial consonant letters**, **Vowel letters**, and **Final consonant letters**.
+- Synchronize the attached source archive and GitHub-generated source downloads with this revision.
 
 - Add **中文 / English** to the upper-right header on Windows, Apple silicon Mac, and Intel Mac. The selection is remembered locally.
 - Translate the workspace, tone profile editor, reference table, correction panel, validation messages, and native application menus.
@@ -16,6 +19,9 @@ The current macOS test build has not yet been notarized by Apple. If you see a m
 Download a platform ZIP to use the application. The separately attached source archive contains code and build documentation, without font binaries or the Electron runtime. `SHA256SUMS.txt` covers the four ZIPs and `USAGE.md`.
 
 ## 中文
+
+- 界面和使用说明统一采用“起始辅音字母”“元音字母”“尾辅音字母”。
+- 独立源码包及 GitHub 自动生成的源码下载同步到本次修订。
 
 - Windows、Apple 芯片 Mac、Intel Mac 页首右侧新增 **中文 / English**，并在本机记住选择。
 - 主界面、声调方案编辑器、说明图表、校正面板、验证提示和原生菜单随界面语言切换。
