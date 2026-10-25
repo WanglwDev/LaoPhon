@@ -30,6 +30,10 @@ Extract the entire Windows archive before opening `LaoPhon.exe`; keep its resour
 
 All text and profile data are processed locally. Changing the interface language preserves input, IPA output, and user-defined profile names. Segmentation is a spelling-rule aid: ambiguous boundaries and unusual spellings still require manual review. A rule match does not verify pronunciation.
 
+### Interface
+
+![LaoPhon English interface](assets/interface-en.png)
+
 ### Source and verification
 
 The source code is available in this repository under [Apache-2.0](LICENSE). LaoNLP attribution is retained in [NOTICE](NOTICE) and [third-party notices](app/ui/THIRD_PARTY_NOTICES.md). Font binaries and the Electron runtime are separate dependencies and are not included in the source archive. Their own notices and licenses apply; see [BUILD.md](BUILD.md).
@@ -73,6 +77,10 @@ Windows 请完整解压后打开 `LaoPhon.exe`，保留同目录全部资源和�
 - 软件包中的老挝文使用 Saysettha OT，IPA 使用 IPAPANNEW。
 
 文本与方案数据均在本地处理。切换界面语言不会改变输入、IPA 结果或用户自定的方案名称。切分基于拼写规则，歧义边界和特殊拼写仍需人工确认；规则匹配不表示读音已核验。
+
+### 操作界面
+
+![LaoPhon 中文操作界面](assets/interface-zh.png)
 
 ### 源码与验证
 
