@@ -67,7 +67,7 @@ def package_mac(runtime_dir, arch):
         if p == bundle / 'Contents/Info.plist':
             info.update(CFBundleIdentifier='org.laophon.share', CFBundleName='LaoPhon',
                         CFBundleDisplayName='LaoPhon', CFBundleIconFile='AppIcon',
-                        CFBundleShortVersionString='2.0.2', CFBundleVersion='3')
+                        CFBundleShortVersionString='2.0.3', CFBundleVersion='4')
         elif '.app/Contents/Info.plist' in str(p.relative_to(bundle)):
             suffix = p.parent.parent.stem.replace('Electron Helper', 'helper').replace(' ', '').replace('(', '.').replace(')', '').lower()
             info['CFBundleIdentifier'] = 'org.laophon.share.' + suffix
